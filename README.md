@@ -6,11 +6,13 @@ The following models are implemented:
 
 DeepLabV3+ [Link](https://arxiv.org/abs/1802.02611)
 
-Masked autoencoder
+Masked autoencoder [link](https://arxiv.org/abs/2111.06377)
 
 Vision Transformer [Link](https://arxiv.org/abs/2010.11929)
 
-Swin Transformer [Link](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf)
+Swin Transformer [Link](https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf)
+
+Neighborhood Attention Transformer [link](https://openaccess.thecvf.com/content/CVPR2023/papers/Hassani_Neighborhood_Attention_Transformer_CVPR_2023_paper.pdf)
 
 RepVGG [Link](https://arxiv.org/abs/2101.03697)
 
@@ -54,6 +56,13 @@ model.summary()
 ```
 from TensorFlow_model import swin_transformer
 model = swin_transformer.build_model()
+model.summary()
+```
+
+### NeighborHood Attention Transdormer
+```
+from TensorFlow_model.neighborhood_attention_transformer import NAT_Base
+model = NAT_Base(input_shape=(224, 224, 3), num_classes=1000)
 model.summary()
 ```
 
