@@ -1,4 +1,4 @@
-# python==3.11.5
+# python==3.11
 opencv-python==4.9.0.80
 tensorflow==2.13.0
 matplotlib==3.8.3
