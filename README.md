@@ -131,8 +131,6 @@ from tensorflow_model.yolov7 import YOLOV7
 model = YOLOV7()
 # Re-Parameterize for heads
 model.deploy()
-
-"""
 ```
 # Acknowledgment
 This repository partially references the following repos:
