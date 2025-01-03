@@ -4,17 +4,27 @@ This repository is a practice for implementing deep learning models using the Te
 
 The following models are implemented:
 
-DeepLabV3+ [Link](https://arxiv.org/abs/1802.02611)
+## Segmentation
 
-Masked autoencoder [link](https://arxiv.org/abs/2111.06377)
+[DeepLabV3+](https://arxiv.org/abs/1802.02611)
 
-Vision Transformer [Link](https://arxiv.org/abs/2010.11929)
+## Vision Transformer
 
-Swin Transformer [Link](https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf)
+[Masked autoencoder](https://arxiv.org/abs/2111.06377)
 
-Neighborhood Attention Transformer [link](https://openaccess.thecvf.com/content/CVPR2023/papers/Hassani_Neighborhood_Attention_Transformer_CVPR_2023_paper.pdf)
+[Vision Transformer](https://arxiv.org/abs/2010.11929)
 
-RepVGG [Link](https://arxiv.org/abs/2101.03697)
+[Swin Transformer](https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf)
+
+[Neighborhood Attention Transformer](https://openaccess.thecvf.com/content/CVPR2023/papers/Hassani_Neighborhood_Attention_Transformer_CVPR_2023_paper.pdf)
+
+## Re-Parameterization
+
+[RepVGG](https://arxiv.org/abs/2101.03697)
+
+## Detection models
+
+[YOLOV7](https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_YOLOv7_Trainable_Bag-of-Freebies_Sets_New_State-of-the-Art_for_Real-Time_Object_Detectors_CVPR_2023_paper.pdf)
 
 # How to use
 
@@ -22,14 +32,14 @@ RepVGG [Link](https://arxiv.org/abs/2101.03697)
 
 ```
 conda create --name tf_model python=3.11.5
-conda avtivate tf_model
+conda activate tf_model
 pip3 install -r requirements.txt
 ```
 
 ### DeepLabV3+
 
 ```
-from TensorFlow_model import deeplab_v3plus
+from tensorflow_model import deeplab_v3plus
 backbone = 'resnet50' # or 'inceptionresnetv2'
 model = deeplab_v3plus.build_model(backbone=backbone)
 model.summary()
@@ -38,7 +48,7 @@ model.summary()
 ### Mask AutoEncoder
 
 ```
-from TensorFlow_model import masked_autoencoder
+from tensorflow_model import masked_autoencoder
 model = masked_autoencoder.build_model()
 model.summary()
 ```
@@ -46,7 +56,7 @@ model.summary()
 ### Vision Transformer
 
 ```
-from TensorFlow_model import vision_transformer
+from tensorflow_model import vision_transformer
 model = vision_transformer.build_model()
 model.summary()
 ```
@@ -54,14 +64,14 @@ model.summary()
 ### Swin Transformer
 
 ```
-from TensorFlow_model import swin_transformer
+from tensorflow_model import swin_transformer
 model = swin_transformer.build_model()
 model.summary()
 ```
 
 ### NeighborHood Attention Transdormer
 ```
-from TensorFlow_model.neighborhood_attention_transformer import NAT_Base
+from tensorflow_model.neighborhood_attention_transformer import NAT_Base
 model = NAT_Base(input_shape=(224, 224, 3), num_classes=1000)
 model.summary()
 ```
@@ -71,7 +81,7 @@ model.summary()
 ```
 import tensorflow as tf
 
-from TensorFlow_model.repvgg import create_RepVGG_A0, repvgg_layer_convert
+from tensorflow_model.repvgg import create_RepVGG_A0, repvgg_layer_convert
 
 repvggA0 = create_RepVGG_A0() # Create RepVGG layer
 input = tf.keras.layers.Input((256, 512, 3))
@@ -112,3 +122,18 @@ Non-trainable params: 7028384 (26.81 MB)
 _________________________________________________________________
 """
 ```
+### YOLOV7
+```
+import tensorflow as tf
+
+from tensorflow_model.yolov7 import YOLOV7
+
+model = YOLOV7()
+# Re-Parameterize for heads
+model.deploy()
+
+"""
+```
+# Acknowledgment
+This repository partially references the following repos:
+[Keras_cv_attention_models](https://github.com/leondgarse/keras_cv_attention_models?tab=readme-ov-file#keras_cv_attention_models)
